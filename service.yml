@@ -10,5 +10,5 @@ spec:
     app: hello-cube
   ports:
     - name: http
-      port: 80         # service port (inside cluster)
+      port: 88         # service port (inside cluster)
       targetPort: 5000 # maps to container port
