@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-cube-deployment
+  labels:
+    app: hello-cube
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-cube
+  template:
+    metadata:
+      labels:
+        app: hello-cube
+    spec:
+      containers:
+        - name: hello-cube-container
+          image: hello_cube:v3
+          imagePullPolicy: Always 
+          ports:
+            - containerPort: 5000
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 20
+            periodSeconds: 10
