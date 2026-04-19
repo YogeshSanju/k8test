@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-cube-ingress
+  annotations:
+    # This tells the NGINX controller how to handle the traffic
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx           # Tell Kubernetes which controller to use
+  rules:
+    - host: hello.local.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix             # Required in the new version
+            backend:
+              service:
+                name: hello-cube-service # The name of your service
+                port:
+                  number: 80             # The port of your service
