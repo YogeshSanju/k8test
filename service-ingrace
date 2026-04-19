@@ -17,4 +17,4 @@ spec:
               service:
                 name: hello-cube-service # The name of your service
                 port:
-                  number: 80             # The port of your service
+                  number: 88             # The port of your service
