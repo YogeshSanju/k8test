@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx           # Tell Kubernetes which controller to use
   rules:
-    - host: hello.local.com
+    - host: hello.argo.local.com
       http:
         paths:
           - path: /
